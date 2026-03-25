@@ -1,0 +1,41 @@
+{
+  "name": "ai-cabinet",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.11.3",
+    "file-saver": "^2.0.5",
+    "jszip": "^3.10.1",
+    "nuxt": "^4.4.2",
+    "pinia-plugin-persistedstate": "^4.7.1",
+    "vue": "^3.5.30",
+    "vue-router": "^5.0.4"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "better-sqlite3",
+      "esbuild"
+    ]
+  },
+  "devDependencies": {
+    "@nuxt/content": "^3.12.0",
+    "@nuxt/icon": "^2.2.1",
+    "@nuxtjs/color-mode": "^4.0.0",
+    "@nuxtjs/robots": "^6.0.3",
+    "@nuxtjs/sitemap": "^8.0.2",
+    "@nuxtjs/tailwindcss": "^6.14.0",
+    "@tailwindcss/postcss": "^4.2.2",
+    "@types/file-saver": "^2.0.7",
+    "better-sqlite3": "^12.8.0",
+    "shadcn-nuxt": "^2.4.3",
+    "tailwindcss": "^4.2.2"
+  }
+}

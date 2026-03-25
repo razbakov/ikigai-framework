@@ -1,0 +1,629 @@
+[
+  {
+    "slug": "daily-review",
+    "name": "Daily Review",
+    "description": "Orchestrate your daily data gathering, inbox processing, and planning session. Pulls browser history, AI transcripts, messages, and calendar to build a complete picture of your day.",
+    "category": "operations",
+    "defaultAgent": "maya",
+    "tags": ["review", "planning", "daily", "gtd"],
+    "complexity": "beginner",
+    "requiresIntegration": ["notion"]
+  },
+  {
+    "slug": "weekly-review",
+    "name": "Weekly Review",
+    "description": "Saturday review and planning session that evaluates progress against OKRs, processes leftover inbox items, and sets priorities for the coming week.",
+    "category": "operations",
+    "defaultAgent": "maya",
+    "tags": ["review", "planning", "weekly", "okrs"],
+    "complexity": "intermediate",
+    "requiresIntegration": ["notion"]
+  },
+  {
+    "slug": "process-inbox",
+    "name": "Process Inbox",
+    "description": "Process messages and notifications through GTD methodology. Classifies items as actionable, reference, or trash, then routes them to the right project or agent.",
+    "category": "operations",
+    "defaultAgent": "maya",
+    "tags": ["gtd", "inbox", "triage", "messages"],
+    "complexity": "beginner",
+    "requiresIntegration": ["telegram", "notion"]
+  },
+  {
+    "slug": "scrum",
+    "name": "Scrum Standup",
+    "description": "Check the status of all running agent tasks and worktrees. Reports what each agent accomplished, what is in progress, and flags any blockers or stale work.",
+    "category": "operations",
+    "defaultAgent": "maya",
+    "tags": ["scrum", "status", "agents", "monitoring"],
+    "complexity": "beginner",
+    "requiresIntegration": ["github"]
+  },
+  {
+    "slug": "suggest-tasks",
+    "name": "Suggest Tasks",
+    "description": "Scan all active projects, open issues, and OKRs to propose a prioritized list of tasks for the current sprint or day. Considers deadlines, dependencies, and strategic value.",
+    "category": "operations",
+    "defaultAgent": "maya",
+    "tags": ["prioritization", "tasks", "planning"],
+    "complexity": "intermediate",
+    "requiresIntegration": ["notion", "github"]
+  },
+  {
+    "slug": "google-drive",
+    "name": "Google Workspace",
+    "description": "Perform Google Workspace operations including Gmail search, Calendar event management, and Drive file operations. Your bridge to the Google ecosystem.",
+    "category": "operations",
+    "defaultAgent": "maya",
+    "tags": ["google", "email", "calendar", "drive"],
+    "complexity": "beginner",
+    "requiresIntegration": ["google"]
+  },
+  {
+    "slug": "dispatch-approved",
+    "name": "Dispatch Approved Tasks",
+    "description": "Launch approved tasks from your task board by spinning up agent sessions in parallel. Each task gets its own worktree and tmux session for isolated execution.",
+    "category": "operations",
+    "defaultAgent": "maya",
+    "tags": ["dispatch", "agents", "parallel", "automation"],
+    "complexity": "advanced",
+    "requiresIntegration": ["notion", "github"]
+  },
+  {
+    "slug": "process-inbox-notion",
+    "name": "Process Notion Inbox",
+    "description": "Process cards in your Notion task board inbox. Adds S3 analysis, assigns to the right agent, sets priority, and moves cards to the appropriate status column.",
+    "category": "operations",
+    "defaultAgent": "maya",
+    "tags": ["notion", "inbox", "triage", "s3"],
+    "complexity": "intermediate",
+    "requiresIntegration": ["notion"]
+  },
+  {
+    "slug": "notion-execute-task",
+    "name": "Execute Notion Task",
+    "description": "Pick up a task card from your project board and execute it end-to-end. Reads the card context, performs the work, updates status, and reports results back to the card.",
+    "category": "operations",
+    "defaultAgent": "maya",
+    "tags": ["notion", "execution", "tasks"],
+    "complexity": "intermediate",
+    "requiresIntegration": ["notion"]
+  },
+  {
+    "slug": "notion-add-to-db",
+    "name": "Add to Notion Database",
+    "description": "Add items to any Notion database with proper schema mapping. Handles property types, relations, and formatting automatically.",
+    "category": "operations",
+    "defaultAgent": "maya",
+    "tags": ["notion", "database", "create"],
+    "complexity": "beginner",
+    "requiresIntegration": ["notion"]
+  },
+  {
+    "slug": "github-issue",
+    "name": "Implement GitHub Issue",
+    "description": "Take a GitHub issue and implement it end-to-end: read the spec, create a branch, write code, run tests, and open a pull request. Full development cycle from issue to PR.",
+    "category": "engineering",
+    "defaultAgent": "viktor",
+    "tags": ["github", "implementation", "pr", "development"],
+    "complexity": "intermediate",
+    "requiresIntegration": ["github"]
+  },
+  {
+    "slug": "developing-tickets",
+    "name": "Develop Tickets by ID",
+    "description": "Work on one or more tickets by their ID. Reads the ticket spec, checks out or creates a branch, implements the changes, and prepares them for review.",
+    "category": "engineering",
+    "defaultAgent": "viktor",
+    "tags": ["tickets", "implementation", "development"],
+    "complexity": "intermediate",
+    "requiresIntegration": ["github"]
+  },
+  {
+    "slug": "github-next-issue",
+    "name": "Pick Next Issue",
+    "description": "Automatically select the highest-priority unassigned issue from your backlog based on labels, milestones, and dependencies, then start working on it.",
+    "category": "engineering",
+    "defaultAgent": "viktor",
+    "tags": ["github", "prioritization", "automation"],
+    "complexity": "intermediate",
+    "requiresIntegration": ["github"]
+  },
+  {
+    "slug": "run-sprint",
+    "name": "Run Sprint",
+    "description": "Dispatch all issues in the current sprint milestone in parallel. Each issue gets its own agent session and worktree for independent, concurrent development.",
+    "category": "engineering",
+    "defaultAgent": "viktor",
+    "tags": ["sprint", "parallel", "dispatch", "agile"],
+    "complexity": "advanced",
+    "requiresIntegration": ["github"]
+  },
+  {
+    "slug": "sprint-planning",
+    "name": "Sprint Planning",
+    "description": "Plan upcoming sprints by reviewing the backlog, estimating stories, grouping by theme, and creating a milestone with balanced workload across available capacity.",
+    "category": "engineering",
+    "defaultAgent": "viktor",
+    "tags": ["sprint", "planning", "estimation", "agile"],
+    "complexity": "intermediate",
+    "requiresIntegration": ["github"]
+  },
+  {
+    "slug": "estimation",
+    "name": "Story Point Estimation",
+    "description": "Estimate effort for issues using story points. Analyzes complexity, unknowns, and scope to assign consistent estimates across your backlog.",
+    "category": "engineering",
+    "defaultAgent": "viktor",
+    "tags": ["estimation", "story-points", "planning"],
+    "complexity": "beginner"
+  },
+  {
+    "slug": "writing-plans",
+    "name": "Write Implementation Plans",
+    "description": "Design detailed implementation plans from specs or requirements. Breaks down work into phases, identifies risks, defines acceptance criteria, and maps out the technical approach.",
+    "category": "engineering",
+    "defaultAgent": "viktor",
+    "tags": ["planning", "architecture", "design", "specs"],
+    "complexity": "intermediate"
+  },
+  {
+    "slug": "executing-plans",
+    "name": "Execute Implementation Plans",
+    "description": "Execute a previously written implementation plan step by step with review checkpoints. Follows the plan phases, runs verification at each stage, and adjusts course when needed.",
+    "category": "engineering",
+    "defaultAgent": "viktor",
+    "tags": ["execution", "implementation", "plans"],
+    "complexity": "intermediate",
+    "requiresIntegration": ["github"]
+  },
+  {
+    "slug": "test-driven-development",
+    "name": "Test-Driven Development",
+    "description": "Write failing tests first, then implement the minimum code to make them pass. Enforces the red-green-refactor cycle to produce well-tested, minimal implementations.",
+    "category": "engineering",
+    "defaultAgent": "viktor",
+    "tags": ["tdd", "testing", "quality", "methodology"],
+    "complexity": "intermediate"
+  },
+  {
+    "slug": "bdd-patterns",
+    "name": "BDD Test Patterns",
+    "description": "Structure tests using Behavior-Driven Development Given-When-Then patterns. Creates readable test suites that double as living documentation of system behavior.",
+    "category": "engineering",
+    "defaultAgent": "viktor",
+    "tags": ["bdd", "testing", "given-when-then"],
+    "complexity": "intermediate"
+  },
+  {
+    "slug": "bdd-scenarios",
+    "name": "Write BDD Scenarios",
+    "description": "Write effective BDD acceptance scenarios from user stories. Translates requirements into concrete, testable Given-When-Then specifications.",
+    "category": "engineering",
+    "defaultAgent": "viktor",
+    "tags": ["bdd", "scenarios", "acceptance-testing"],
+    "complexity": "beginner"
+  },
+  {
+    "slug": "systematic-debugging",
+    "name": "Systematic Debugging",
+    "description": "Root cause analysis before applying fixes. Reproduces the issue, forms hypotheses, narrows down with binary search, and verifies the fix addresses the actual cause rather than symptoms.",
+    "category": "engineering",
+    "defaultAgent": "viktor",
+    "tags": ["debugging", "root-cause", "troubleshooting"],
+    "complexity": "intermediate"
+  },
+  {
+    "slug": "pr-review-responder",
+    "name": "PR Review Responder",
+    "description": "Address pull request review comments systematically. Reads all feedback, implements changes, responds to discussions, and ensures all threads are resolved before re-requesting review.",
+    "category": "engineering",
+    "defaultAgent": "viktor",
+    "tags": ["pr", "review", "code-review", "github"],
+    "complexity": "intermediate",
+    "requiresIntegration": ["github"]
+  },
+  {
+    "slug": "review-all-prs",
+    "name": "Review All Open PRs",
+    "description": "Scan all open pull requests across your repositories, address review comments, fix failing CI, and push updates. Batch process for clearing the PR backlog.",
+    "category": "engineering",
+    "defaultAgent": "viktor",
+    "tags": ["pr", "review", "batch", "github"],
+    "complexity": "advanced",
+    "requiresIntegration": ["github"]
+  },
+  {
+    "slug": "verification-before-completion",
+    "name": "Verification Before Done",
+    "description": "Verify work actually functions before marking it complete. Runs tests, checks logs, demonstrates the feature works, and compares behavior against requirements.",
+    "category": "engineering",
+    "defaultAgent": "viktor",
+    "tags": ["verification", "quality", "testing", "done-definition"],
+    "complexity": "beginner"
+  },
+  {
+    "slug": "finishing-a-development-branch",
+    "name": "Finish Development Branch",
+    "description": "Complete the lifecycle of a feature branch: final tests, cleanup, squash decisions, PR creation or merge, and post-merge housekeeping.",
+    "category": "engineering",
+    "defaultAgent": "viktor",
+    "tags": ["git", "branch", "merge", "cleanup"],
+    "complexity": "beginner",
+    "requiresIntegration": ["github"]
+  },
+  {
+    "slug": "dependency-vuln-report",
+    "name": "Dependency Vulnerability Report",
+    "description": "Security audit of project dependencies. Scans for known vulnerabilities, outdated packages, and license issues, then produces a prioritized report with remediation steps.",
+    "category": "engineering",
+    "defaultAgent": "viktor",
+    "tags": ["security", "dependencies", "audit", "vulnerabilities"],
+    "complexity": "intermediate",
+    "requiresIntegration": ["github"]
+  },
+  {
+    "slug": "nuxt-seo-audit",
+    "name": "Nuxt SEO Audit",
+    "description": "Comprehensive SEO audit for Nuxt applications. Checks meta tags, structured data, sitemap, robots.txt, performance metrics, and indexing issues specific to Nuxt's rendering modes.",
+    "category": "engineering",
+    "defaultAgent": "viktor",
+    "tags": ["seo", "nuxt", "audit", "performance"],
+    "complexity": "intermediate"
+  },
+  {
+    "slug": "simplify",
+    "name": "Simplify Code",
+    "description": "Review code for quality, efficiency, and unnecessary complexity. Identifies over-engineering, dead code, and opportunities to reduce cognitive load while maintaining functionality.",
+    "category": "engineering",
+    "defaultAgent": "viktor",
+    "tags": ["refactoring", "simplicity", "code-quality"],
+    "complexity": "intermediate"
+  },
+  {
+    "slug": "subagent-driven-development",
+    "name": "Subagent-Driven Development",
+    "description": "Break a large task into independent subtasks and dispatch them to parallel subagents. Each subtask runs in isolation, and results are merged back into the main branch.",
+    "category": "engineering",
+    "defaultAgent": "viktor",
+    "tags": ["parallel", "subagents", "dispatch", "scaling"],
+    "complexity": "advanced",
+    "requiresIntegration": ["github"]
+  },
+  {
+    "slug": "content-seo-agent",
+    "name": "Content & SEO Agent",
+    "description": "Full content pipeline: SEO audits, keyword research, blog post drafting, content calendar management, and performance tracking. Turns your expertise into discoverable content.",
+    "category": "content",
+    "defaultAgent": "luna",
+    "tags": ["seo", "content", "blog", "keywords", "calendar"],
+    "complexity": "intermediate"
+  },
+  {
+    "slug": "viral-threads",
+    "name": "Viral Threads",
+    "description": "Transform long-form content into engaging social media threads. Extracts key insights, structures them for maximum engagement, and formats for platform-specific requirements.",
+    "category": "content",
+    "defaultAgent": "luna",
+    "tags": ["social-media", "threads", "content-repurposing"],
+    "complexity": "beginner"
+  },
+  {
+    "slug": "social-post",
+    "name": "Social Media Post",
+    "description": "Cross-platform content distribution. Adapts a single piece of content for multiple platforms (blog, Twitter/X, LinkedIn, Telegram) with platform-appropriate formatting and hashtags.",
+    "category": "content",
+    "defaultAgent": "luna",
+    "tags": ["social-media", "distribution", "cross-platform"],
+    "complexity": "beginner"
+  },
+  {
+    "slug": "x-post",
+    "name": "Post to X/Twitter",
+    "description": "Compose and post tweets and threads to X/Twitter. Handles character limits, thread splitting, media attachments, and optimal posting times.",
+    "category": "content",
+    "defaultAgent": "luna",
+    "tags": ["twitter", "x", "social-media", "posting"],
+    "complexity": "beginner",
+    "requiresIntegration": ["twitter"]
+  },
+  {
+    "slug": "brand-poster",
+    "name": "Brand Poster Generator",
+    "description": "Generate marketing posters and graphics that match your brand guidelines. Produces event flyers, product announcements, and social media cards with consistent visual identity.",
+    "category": "content",
+    "defaultAgent": "luna",
+    "tags": ["design", "poster", "branding", "graphics"],
+    "complexity": "intermediate"
+  },
+  {
+    "slug": "image-from-gemini",
+    "name": "AI Image Generation (Gemini)",
+    "description": "Generate images using Google Gemini's image capabilities. Create illustrations, diagrams, social media graphics, and concept art from text descriptions.",
+    "category": "content",
+    "defaultAgent": "luna",
+    "tags": ["ai", "images", "gemini", "generation"],
+    "complexity": "beginner"
+  },
+  {
+    "slug": "image-from-html",
+    "name": "Image from HTML/CSS",
+    "description": "Generate pixel-perfect images from HTML and CSS designs. Ideal for social cards, open graph images, email headers, and any graphic that benefits from programmatic control.",
+    "category": "content",
+    "defaultAgent": "luna",
+    "tags": ["html", "css", "images", "design"],
+    "complexity": "intermediate"
+  },
+  {
+    "slug": "image-from-latex",
+    "name": "Image from LaTeX",
+    "description": "Create crisp vector graphics and diagrams from LaTeX code. Perfect for mathematical formulas, technical diagrams, flowcharts, and publication-quality figures.",
+    "category": "content",
+    "defaultAgent": "luna",
+    "tags": ["latex", "vector", "diagrams", "graphics"],
+    "complexity": "intermediate"
+  },
+  {
+    "slug": "video-from-gemini",
+    "name": "AI Video Generation (Gemini)",
+    "description": "Generate short video clips using Google Gemini's video capabilities. Create promotional clips, explainers, and visual content from text descriptions.",
+    "category": "content",
+    "defaultAgent": "luna",
+    "tags": ["ai", "video", "gemini", "generation"],
+    "complexity": "intermediate"
+  },
+  {
+    "slug": "video-podcast-producer",
+    "name": "Video Podcast Producer",
+    "description": "Split long-form video recordings into short clips, generate thumbnails, transcribe audio, and create chapter markers. Full post-production pipeline for video content.",
+    "category": "content",
+    "defaultAgent": "luna",
+    "tags": ["video", "podcast", "clips", "production"],
+    "complexity": "advanced"
+  },
+  {
+    "slug": "transcribe-via-faster-whisper",
+    "name": "Local Audio Transcription",
+    "description": "Transcribe audio and video files locally using faster-whisper. Runs on your machine for privacy, supports multiple languages, and outputs timestamped text.",
+    "category": "content",
+    "defaultAgent": "luna",
+    "tags": ["transcription", "audio", "whisper", "local"],
+    "complexity": "beginner"
+  },
+  {
+    "slug": "website-voice-audit",
+    "name": "Website Voice Audit",
+    "description": "Audit your website for brand voice consistency. Analyzes tone, language patterns, and messaging alignment across all pages to ensure a coherent brand experience.",
+    "category": "content",
+    "defaultAgent": "luna",
+    "tags": ["brand", "voice", "audit", "consistency"],
+    "complexity": "intermediate"
+  },
+  {
+    "slug": "youtube-metadata-updater",
+    "name": "YouTube Metadata Optimizer",
+    "description": "Optimize YouTube video titles, descriptions, tags, and chapter markers for discoverability. Analyzes competition and search trends to maximize organic reach.",
+    "category": "content",
+    "defaultAgent": "luna",
+    "tags": ["youtube", "seo", "metadata", "optimization"],
+    "complexity": "beginner",
+    "requiresIntegration": ["youtube"]
+  },
+  {
+    "slug": "qr-code-generator",
+    "name": "QR Code Generator",
+    "description": "Generate QR codes with embedded UTM tracking parameters. Creates branded codes for events, business cards, and marketing materials with built-in analytics.",
+    "category": "content",
+    "defaultAgent": "luna",
+    "tags": ["qr-code", "tracking", "utm", "marketing"],
+    "complexity": "beginner"
+  },
+  {
+    "slug": "startup-coach",
+    "name": "Startup Coach",
+    "description": "Structured business coaching from mission/vision through hypothesis validation to JTBD analysis and story mapping. Challenges assumptions and keeps you focused on what matters.",
+    "category": "strategy",
+    "defaultAgent": "marco",
+    "tags": ["startup", "coaching", "jtbd", "validation", "strategy"],
+    "complexity": "intermediate"
+  },
+  {
+    "slug": "brainstorming",
+    "name": "Brainstorming Session",
+    "description": "Explore intent and requirements before jumping into building. Structured ideation that maps out the problem space, identifies constraints, and converges on the best approach.",
+    "category": "strategy",
+    "defaultAgent": "marco",
+    "tags": ["ideation", "brainstorming", "requirements", "discovery"],
+    "complexity": "beginner"
+  },
+  {
+    "slug": "user-story",
+    "name": "User Story Writer",
+    "description": "Transform vague requirements into well-structured INVEST user stories. Includes acceptance criteria, edge cases, and technical notes ready for sprint planning.",
+    "category": "strategy",
+    "defaultAgent": "marco",
+    "tags": ["user-stories", "requirements", "invest", "agile"],
+    "complexity": "beginner"
+  },
+  {
+    "slug": "project-start",
+    "name": "Project Kickoff",
+    "description": "Full project initialization from README to user journey to story map to architecture decisions. Sets up the foundation for a new product or feature from scratch.",
+    "category": "strategy",
+    "defaultAgent": "marco",
+    "tags": ["project", "kickoff", "architecture", "user-journey"],
+    "complexity": "advanced"
+  },
+  {
+    "slug": "sales-bizdev-agent",
+    "name": "Sales & Business Development",
+    "description": "Manage your sales pipeline from lead generation through outreach to deal tracking. Research prospects, craft personalized messages, and track conversion metrics.",
+    "category": "strategy",
+    "defaultAgent": "marco",
+    "tags": ["sales", "leads", "outreach", "pipeline", "bizdev"],
+    "complexity": "advanced"
+  },
+  {
+    "slug": "freelance-job-hunt",
+    "name": "Freelance Job Hunt",
+    "description": "Search freelance platforms for matching opportunities based on your skills and rates. Filters by budget, tech stack, and timeline, then prepares tailored proposals.",
+    "category": "strategy",
+    "defaultAgent": "marco",
+    "tags": ["freelance", "jobs", "proposals", "platforms"],
+    "complexity": "intermediate"
+  },
+  {
+    "slug": "storyteller-tactics",
+    "name": "Storyteller Tactics",
+    "description": "Craft compelling narratives for pitches, presentations, and content. Uses proven storytelling frameworks to make your message memorable and persuasive.",
+    "category": "strategy",
+    "defaultAgent": "marco",
+    "tags": ["storytelling", "pitches", "narrative", "persuasion"],
+    "complexity": "intermediate"
+  },
+  {
+    "slug": "portfolio-hiring-analysis",
+    "name": "Portfolio & Hiring Analysis",
+    "description": "Analyze your project portfolio to identify skill gaps and hiring needs. Maps capabilities against requirements and recommends where to bring in help or build new skills.",
+    "category": "strategy",
+    "defaultAgent": "marco",
+    "tags": ["portfolio", "hiring", "skills", "gaps", "analysis"],
+    "complexity": "intermediate"
+  },
+  {
+    "slug": "personal-coach",
+    "name": "Personal Coaching Session",
+    "description": "Guided coaching conversation using assessment data, check-in history, and journaling. Helps you reflect, unblock, and reconnect with your purpose using Socratic questioning.",
+    "category": "coaching",
+    "defaultAgent": "sage",
+    "tags": ["coaching", "reflection", "journaling", "wellbeing"],
+    "complexity": "beginner"
+  },
+  {
+    "slug": "year-review",
+    "name": "Year in Review",
+    "description": "Comprehensive life assessment using the Level 10 Life framework. Scores 10 life areas, identifies patterns over time, and creates an actionable plan for the next quarter.",
+    "category": "coaching",
+    "defaultAgent": "sage",
+    "tags": ["assessment", "yearly", "level-10-life", "planning"],
+    "complexity": "intermediate"
+  },
+  {
+    "slug": "s3-coaching-protocol",
+    "name": "S3 Coaching Protocol",
+    "description": "Structured coaching sessions using Sociocracy 3.0 patterns. Identifies tensions, explores drivers, and co-creates responses that align with your values and goals.",
+    "category": "coaching",
+    "defaultAgent": "sage",
+    "tags": ["s3", "sociocracy", "coaching", "tensions"],
+    "complexity": "intermediate"
+  },
+  {
+    "slug": "s3-collaboration",
+    "name": "S3 Collaboration Patterns",
+    "description": "Apply Sociocracy 3.0 collaboration patterns to your agent team and projects. Includes consent decision-making, role definitions, and governance meetings.",
+    "category": "coaching",
+    "defaultAgent": "sage",
+    "tags": ["s3", "sociocracy", "collaboration", "governance"],
+    "complexity": "advanced"
+  },
+  {
+    "slug": "agent-browser",
+    "name": "Browser Automation Agent",
+    "description": "Automate web research, form filling, and data extraction using browser automation. Navigates sites, captures information, and performs repetitive web tasks.",
+    "category": "community",
+    "defaultAgent": "kai",
+    "tags": ["browser", "automation", "research", "web"],
+    "complexity": "intermediate"
+  },
+  {
+    "slug": "dogfood",
+    "name": "Dogfood Testing",
+    "description": "Exploratory testing and QA of your web applications. Navigates your product as a real user would, identifies bugs, UX issues, and broken flows, then files detailed reports.",
+    "category": "community",
+    "defaultAgent": "kai",
+    "tags": ["testing", "qa", "exploratory", "dogfooding"],
+    "complexity": "beginner"
+  },
+  {
+    "slug": "figma-implement-design",
+    "name": "Figma to Code",
+    "description": "Translate Figma designs into production code. Reads design specs, extracts tokens, and implements pixel-accurate components with proper responsive behavior.",
+    "category": "community",
+    "defaultAgent": "kai",
+    "tags": ["figma", "design", "implementation", "ui"],
+    "complexity": "advanced",
+    "requiresIntegration": ["figma"]
+  },
+  {
+    "slug": "using-git-worktrees",
+    "name": "Git Worktrees",
+    "description": "Use isolated git worktrees for parallel feature development. Each task gets its own working directory without affecting your main branch or other in-progress work.",
+    "category": "productivity",
+    "defaultAgent": "viktor",
+    "tags": ["git", "worktrees", "isolation", "parallel"],
+    "complexity": "beginner"
+  },
+  {
+    "slug": "dispatching-parallel-agents",
+    "name": "Dispatch Parallel Agents",
+    "description": "Run independent tasks simultaneously by launching multiple agent sessions. Manages tmux sessions, worktrees, and result collection for concurrent execution.",
+    "category": "productivity",
+    "defaultAgent": "maya",
+    "tags": ["parallel", "agents", "tmux", "dispatch"],
+    "complexity": "advanced"
+  },
+  {
+    "slug": "improve-skill",
+    "name": "Improve Existing Skill",
+    "description": "Analyze an existing skill's performance, identify gaps or inefficiencies, and produce an improved version. Uses conversation history and error patterns as improvement signals.",
+    "category": "productivity",
+    "defaultAgent": "maya",
+    "tags": ["skills", "improvement", "iteration", "meta"],
+    "complexity": "intermediate"
+  },
+  {
+    "slug": "meta-skill",
+    "name": "Meta Skill Decomposition",
+    "description": "Break down complex skills into smaller, reusable sub-skills. Identifies shared patterns across skills and creates a modular skill architecture.",
+    "category": "productivity",
+    "defaultAgent": "maya",
+    "tags": ["meta", "skills", "decomposition", "architecture"],
+    "complexity": "advanced"
+  },
+  {
+    "slug": "writing-skills",
+    "name": "Create New Skills",
+    "description": "Create and verify new AI skills from scratch. Defines trigger conditions, step-by-step processes, inputs/outputs, and templates, then validates the skill actually works.",
+    "category": "productivity",
+    "defaultAgent": "maya",
+    "tags": ["skills", "creation", "templates", "verification"],
+    "complexity": "intermediate"
+  },
+  {
+    "slug": "workflow",
+    "name": "Multi-Step Workflow",
+    "description": "Orchestrate complex multi-step tasks with planning, execution, and verification phases. Breaks large goals into ordered steps and manages state between them.",
+    "category": "productivity",
+    "defaultAgent": "maya",
+    "tags": ["workflow", "orchestration", "multi-step", "planning"],
+    "complexity": "intermediate"
+  },
+  {
+    "slug": "continual-learning",
+    "name": "Continual Learning",
+    "description": "Extract patterns, lessons, and rules from conversations and apply them to future work. Builds a growing knowledge base that makes your agents smarter over time.",
+    "category": "productivity",
+    "defaultAgent": "maya",
+    "tags": ["learning", "patterns", "knowledge", "improvement"],
+    "complexity": "beginner"
+  },
+  {
+    "slug": "export-chat-history",
+    "name": "Export Chat History",
+    "description": "Export AI chat transcripts from various sources into structured markdown files. Captures session metadata, timestamps, and conversation content for review and analysis.",
+    "category": "productivity",
+    "defaultAgent": "maya",
+    "tags": ["export", "history", "transcripts", "archiving"],
+    "complexity": "beginner"
+  }
+]
