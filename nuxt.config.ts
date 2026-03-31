@@ -23,6 +23,12 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  content: {
+    renderer: {
+      anchorLinks: false,
+    },
+  },
+
   colorMode: {
     preference: 'dark',
     fallback: 'dark',
