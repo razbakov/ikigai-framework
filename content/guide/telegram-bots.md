@@ -70,11 +70,11 @@ This ensures nobody else can control your agents.
 Telegram is optional. You can run everything through the Claude Code CLI directly:
 
 ```bash
-# Talk to Maya
-claude --profile maya "What's on my calendar today?"
+# Talk to Claude in your project directory (reads CLAUDE.md for agent persona)
+claude "What's on my calendar today?"
 
-# Talk to Viktor
-claude --profile viktor "What's the status of open PRs?"
+# Or use --append-system-prompt to specify which agent to act as
+claude --append-system-prompt "You are Viktor, the CTO agent." "What's the status of open PRs?"
 ```
 
 The CLI approach works fine if you prefer terminal workflows over mobile messaging.

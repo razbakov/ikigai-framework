@@ -41,7 +41,7 @@ To add a 7th (or 8th, or 9th) agent:
 
 ## Writing Custom Skills
 
-Create a `SKILL.md` file in `skills/<agent-id>/<skill-slug>/`:
+Create a `SKILL.md` file in `.claude/skills/<skill-slug>/`:
 
 ```markdown
 ---

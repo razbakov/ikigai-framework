@@ -15,7 +15,7 @@ How the skill gets activated — manually via a slash command (`/daily-review`),
 ### Process
 A step-by-step procedure the agent follows:
 1. Gather context
-2. Analyze using S3 framework
+2. Analyze requirements and constraints
 3. Execute the core task
 4. Verify quality
 5. Report results
@@ -49,6 +49,6 @@ Each skill has a complexity rating:
 
 ## Creating Custom Skills
 
-You can create your own skills by adding a `SKILL.md` file to the `skills/<agent-id>/` directory. Follow the template structure and include all sections (trigger, process, inputs, outputs, quality checklist).
+You can create your own skills by adding a `SKILL.md` file to the `.claude/skills/<skill-slug>/` directory. Follow the template structure and include all sections (trigger, process, inputs, outputs, quality checklist).
 
 Browse the [Skills Catalog](/skills) to see all available skills.

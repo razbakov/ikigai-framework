@@ -60,7 +60,7 @@ cd ~/my-project
 claude
 ```
 
-### 4. Test Your First Agent
+### 3. Test Your First Agent
 
 Start with something concrete:
 
@@ -76,7 +76,7 @@ Or just talk to it naturally:
 
 Claude reads the instructions from `CLAUDE.md`, assumes the agent persona, and executes the skill.
 
-### 5. Add Integrations (Optional)
+### 4. Add Integrations (Optional)
 
 Agents become more powerful with tool access:
 

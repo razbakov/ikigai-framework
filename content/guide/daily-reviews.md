@@ -32,19 +32,16 @@ A summary of what was accomplished, what remains, and what to carry forward to t
 
 ## Setting Up Scheduled Tasks
 
-Claude Code supports cron-like scheduled tasks. Create recurring tasks for your review cadence:
+Claude Code supports scheduled tasks via remote triggers or the CronCreate tool within a session. Set up recurring tasks for your review cadence:
 
 ```bash
-# Daily review at 6 AM (data gathering)
-claude task create daily-review \
-  --cron "0 6 * * *" \
-  --prompt "Run the daily review skill. Gather all data sources
-  and prepare the morning briefing."
+# Start a Claude Code session and use the /schedule skill
+claude "/schedule daily-review --cron '0 6 * * *'"
 
-# Daily plan delivery at 9 AM
-claude task create daily-plan \
-  --cron "0 9 * * *" \
-  --prompt "Send the daily plan summary via Telegram."
+# Or create a scheduled task via the API
+claude "Create a scheduled task called daily-review
+  that runs at 6 AM daily to gather all data sources
+  and prepare the morning briefing."
 ```
 
 ## Weekly Review Cadence
@@ -58,10 +55,9 @@ The weekly review runs every Saturday and covers:
 - **Personal reflection** — how are you feeling about the work?
 
 ```bash
-# Weekly review every Saturday at 10 AM
-claude task create weekly-review \
-  --cron "0 10 * * 6" \
-  --prompt "Run the weekly review skill. Evaluate progress
+# Weekly review every Saturday at 10 AM — set up in a Claude Code session
+claude "Create a scheduled task called weekly-review
+  that runs every Saturday at 10 AM to evaluate progress
   against OKRs and plan next week."
 ```
 

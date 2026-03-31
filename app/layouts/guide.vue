@@ -36,11 +36,11 @@
             Skills System
           </NuxtLink>
           <NuxtLink
-            to="/guide/s3-framework"
+            to="/guide/s3-governance"
             class="block px-3 py-2 rounded-md text-sm hover:bg-muted transition-colors"
             active-class="bg-muted text-primary font-medium"
           >
-            S3 Framework
+            S3 Governance
           </NuxtLink>
           <NuxtLink
             to="/guide/customization"
