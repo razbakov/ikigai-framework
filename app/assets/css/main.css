@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
 
 @theme {
   --color-background: oklch(0.145 0 0);
@@ -64,5 +63,145 @@ body {
 
 * {
   border-color: var(--color-border);
+}
+
+/* Guide content prose styling */
+.prose-custom {
+  line-height: 1.75;
+  max-width: 65ch;
+}
+
+.prose-custom h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-foreground);
+}
+
+.prose-custom h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-foreground);
+}
+
+.prose-custom h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-foreground);
+}
+
+.prose-custom p {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-muted-foreground);
+}
+
+.prose-custom ul, .prose-custom ol {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+}
+
+.prose-custom ul {
+  list-style-type: disc;
+}
+
+.prose-custom ol {
+  list-style-type: decimal;
+}
+
+.prose-custom li {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  color: var(--color-muted-foreground);
+}
+
+.prose-custom li::marker {
+  color: var(--color-primary);
+}
+
+.prose-custom a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose-custom a:hover {
+  opacity: 0.8;
+}
+
+.prose-custom strong {
+  font-weight: 600;
+  color: var(--color-foreground);
+}
+
+.prose-custom code {
+  background: var(--color-muted);
+  border-radius: 0.25rem;
+  padding: 0.15rem 0.4rem;
+  font-size: 0.875em;
+  color: var(--color-primary);
+}
+
+.prose-custom pre {
+  background: var(--color-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+}
+
+.prose-custom pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  color: var(--color-foreground);
+}
+
+.prose-custom blockquote {
+  border-left: 3px solid var(--color-primary);
+  padding-left: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+  color: var(--color-muted-foreground);
+}
+
+.prose-custom hr {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-color: var(--color-border);
+}
+
+.prose-custom table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.prose-custom th, .prose-custom td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border);
+  text-align: left;
+}
+
+.prose-custom th {
+  font-weight: 600;
+  background: var(--color-muted);
+  color: var(--color-foreground);
+}
+
+.prose-custom td {
+  color: var(--color-muted-foreground);
 }
 

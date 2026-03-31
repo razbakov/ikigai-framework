@@ -14,13 +14,13 @@ const colorMap: Record<string, string> = {
   kai: 'border-t-[var(--color-kai)] bg-[var(--color-kai)]/5',
 }
 
-const iconColorMap: Record<string, string> = {
-  maya: 'text-[var(--color-maya)]',
-  viktor: 'text-[var(--color-viktor)]',
-  luna: 'text-[var(--color-luna)]',
-  marco: 'text-[var(--color-marco)]',
-  sage: 'text-[var(--color-sage)]',
-  kai: 'text-[var(--color-kai)]',
+const ringColorMap: Record<string, string> = {
+  maya: 'ring-[var(--color-maya)]',
+  viktor: 'ring-[var(--color-viktor)]',
+  luna: 'ring-[var(--color-luna)]',
+  marco: 'ring-[var(--color-marco)]',
+  sage: 'ring-[var(--color-sage)]',
+  kai: 'ring-[var(--color-kai)]',
 }
 </script>
 
@@ -31,11 +31,12 @@ const iconColorMap: Record<string, string> = {
   >
     <div class="flex items-start justify-between mb-4">
       <div class="flex items-center gap-3">
-        <div
-          class="w-10 h-10 rounded-lg flex items-center justify-center bg-muted"
-        >
-          <Icon :name="agent.icon" class="w-5 h-5" :class="iconColorMap[agent.color]" />
-        </div>
+        <img
+          :src="agent.avatar"
+          :alt="agent.name"
+          class="w-12 h-12 rounded-full object-cover ring-2"
+          :class="ringColorMap[agent.color]"
+        />
         <div>
           <h3 class="font-semibold text-lg">{{ agent.name }}</h3>
           <p class="text-sm text-muted-foreground">{{ agent.role }}</p>

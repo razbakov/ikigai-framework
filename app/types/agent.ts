@@ -3,6 +3,7 @@ export interface AgentDefinition {
   name: string
   role: string
   icon: string
+  avatar: string
   personality: string
   color: string
   description: string
@@ -18,6 +19,7 @@ export const AGENTS: AgentDefinition[] = [
     name: 'Maya',
     role: 'Chief of Staff',
     icon: 'lucide:clipboard-list',
+    avatar: '/images/agents/maya.png',
     personality: 'ISTJ',
     color: 'maya',
     description: 'Maya keeps everything running. She owns your daily rhythm, manages your inbox, coordinates between agents, and ensures nothing falls through the cracks.',
@@ -35,6 +37,7 @@ export const AGENTS: AgentDefinition[] = [
     name: 'Viktor',
     role: 'CTO',
     icon: 'lucide:code',
+    avatar: '/images/agents/viktor.png',
     personality: 'INTJ',
     color: 'viktor',
     description: 'Viktor handles the technical side. He architects solutions, writes code, manages deployments, and keeps your tech stack healthy and your codebase clean.',
@@ -52,6 +55,7 @@ export const AGENTS: AgentDefinition[] = [
     name: 'Luna',
     role: 'Head of Content & Growth',
     icon: 'lucide:pen-tool',
+    avatar: '/images/agents/luna.png',
     personality: 'ENFP',
     color: 'luna',
     description: 'Luna turns your ideas into content that reaches people. She writes blog posts, manages social media, optimizes for SEO, and builds your public presence.',
@@ -69,6 +73,7 @@ export const AGENTS: AgentDefinition[] = [
     name: 'Marco',
     role: 'Head of Strategy & Business',
     icon: 'lucide:target',
+    avatar: '/images/agents/marco.png',
     personality: 'ENTJ',
     color: 'marco',
     description: 'Marco ensures you are building the right things. He defines OKRs, evaluates business models, tracks metrics, and keeps your portfolio focused on what matters.',
@@ -86,6 +91,7 @@ export const AGENTS: AgentDefinition[] = [
     name: 'Sage',
     role: 'Personal Coach',
     icon: 'lucide:heart',
+    avatar: '/images/agents/sage.png',
     personality: 'INFJ',
     color: 'sage',
     description: 'Sage watches out for you as a human. She tracks your energy, flags burnout risk, helps you reconnect with purpose, and maintains the balance between ambition and wellbeing.',
@@ -103,6 +109,7 @@ export const AGENTS: AgentDefinition[] = [
     name: 'Kai',
     role: 'Community & Partnerships',
     icon: 'lucide:users',
+    avatar: '/images/agents/kai.png',
     personality: 'ESFJ',
     color: 'kai',
     description: 'Kai builds your network and nurtures your community. He manages contacts, follows up after events, runs community engagement, and opens doors to partnerships.',
