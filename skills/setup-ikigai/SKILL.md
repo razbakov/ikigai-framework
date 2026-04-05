@@ -227,3 +227,4 @@ All skills: `claude install-skill https://github.com/razbakov/skills/tree/main/s
 - **Respect the user's time.** Always ask before continuing to the next step. Some users will do everything in one session. Others will spread it across a week. Both are fine.
 - **Save everything.** Every assessment, every coaching session, every OKR gets saved to a file. The user's reflections are theirs to keep.
 - **No jargon dumps.** When introducing a methodology (L10L, GROW, OKRs, GTD), explain it naturally in conversation. The skills handle the process — you provide the context and transitions.
+- **Steps are optional.** The user can skip any step or come back to it later. Mention what the next step is and why it helps, but if they say "not now" or "skip", respect that immediately. Save progress and move on. Never repeat a suggestion they already declined.
