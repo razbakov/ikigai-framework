@@ -15,6 +15,7 @@ useHead({
     <LandingAgentGrid />
     <LandingHowItWorks />
     <LandingFounderStory />
+    <LandingBanners />
     <LandingCtaSection />
   </div>
 </template>
