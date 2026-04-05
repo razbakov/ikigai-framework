@@ -26,28 +26,42 @@
             class="block px-3 py-2 rounded-md text-sm hover:bg-muted transition-colors"
             active-class="bg-muted text-primary font-medium"
           >
-            Understanding Agents
+            Meet the Team
           </NuxtLink>
           <NuxtLink
             to="/guide/skills"
             class="block px-3 py-2 rounded-md text-sm hover:bg-muted transition-colors"
             active-class="bg-muted text-primary font-medium"
           >
-            Skills System
+            Use Cases
+          </NuxtLink>
+          <NuxtLink
+            to="/guide/daily-reviews"
+            class="block px-3 py-2 rounded-md text-sm hover:bg-muted transition-colors"
+            active-class="bg-muted text-primary font-medium"
+          >
+            Daily Life
           </NuxtLink>
           <NuxtLink
             to="/guide/s3-governance"
             class="block px-3 py-2 rounded-md text-sm hover:bg-muted transition-colors"
             active-class="bg-muted text-primary font-medium"
           >
-            S3 Governance
+            Governance
+          </NuxtLink>
+          <NuxtLink
+            to="/guide/telegram-bots"
+            class="block px-3 py-2 rounded-md text-sm hover:bg-muted transition-colors"
+            active-class="bg-muted text-primary font-medium"
+          >
+            Telegram
           </NuxtLink>
           <NuxtLink
             to="/guide/customization"
             class="block px-3 py-2 rounded-md text-sm hover:bg-muted transition-colors"
             active-class="bg-muted text-primary font-medium"
           >
-            Customization
+            Make It Yours
           </NuxtLink>
         </nav>
       </aside>

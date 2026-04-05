@@ -6,39 +6,51 @@ definePageMeta({
 useHead({
   title: 'Guide — Ikigai Team',
   meta: [
-    { name: 'description', content: 'Learn how to set up and use your Ikigai Team — from understanding agents to deploying skills.' },
+    { name: 'description', content: 'Meet your AI dream team and learn how to work with them.' },
   ],
 })
 
 const sections = [
   {
     title: 'Getting Started',
-    description: 'Set up your Ikigai Team configuration and deploy your first agents.',
+    description: 'Set up your team in minutes.',
     icon: 'lucide:rocket',
     to: '/guide/getting-started',
   },
   {
-    title: 'Understanding Agents',
-    description: 'Learn how AI agents work, their roles, personalities, and decision-making framework.',
+    title: 'Meet the Team',
+    description: 'Get to know Maya, Viktor, Luna, Marco, Sage, and Kai.',
     icon: 'lucide:users',
     to: '/guide/agents',
   },
   {
-    title: 'Skills System',
-    description: 'Discover how skills work — reusable workflows your agents can execute on demand.',
-    icon: 'lucide:zap',
+    title: 'Use Cases',
+    description: 'Real examples of what to ask your agents.',
+    icon: 'lucide:message-circle',
     to: '/guide/skills',
   },
   {
-    title: 'S3 Governance',
-    description: 'Sociocracy 3.0 patterns for agent domains, drivers, constraints, and decision authority.',
-    icon: 'lucide:layers',
+    title: 'Daily Life',
+    description: 'What a typical day looks like with your team.',
+    icon: 'lucide:sun',
+    to: '/guide/daily-reviews',
+  },
+  {
+    title: 'Governance',
+    description: 'How decisions work — who decides, who advises.',
+    icon: 'lucide:git-branch',
     to: '/guide/s3-governance',
   },
   {
-    title: 'Customization',
-    description: 'Advanced customization: create custom agents, write your own skills, and extend the system.',
-    icon: 'lucide:settings',
+    title: 'Telegram',
+    description: 'Message your agents from your phone.',
+    icon: 'lucide:smartphone',
+    to: '/guide/telegram-bots',
+  },
+  {
+    title: 'Make It Yours',
+    description: 'Adapt the team to your needs.',
+    icon: 'lucide:palette',
     to: '/guide/customization',
   },
 ]
@@ -46,9 +58,9 @@ const sections = [
 
 <template>
   <div>
-    <h1 class="text-3xl font-bold mb-3">Ikigai Team Guide</h1>
+    <h1 class="text-3xl font-bold mb-3">Guide</h1>
     <p class="text-lg text-muted-foreground mb-10">
-      Everything you need to know about setting up and using your AI executive team.
+      Meet your AI dream team and learn how to work with them.
     </p>
 
     <div class="grid gap-4">
