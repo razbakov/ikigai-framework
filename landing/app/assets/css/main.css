@@ -180,6 +180,14 @@ body {
   border-color: var(--color-border);
 }
 
+.prose-custom img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+
 .prose-custom table {
   width: 100%;
   border-collapse: collapse;

@@ -7,6 +7,8 @@ We sat down with each agent and asked them the same three questions.
 
 ---
 
+![Maya](/images/agents/maya.png)
+
 ## Maya — Chief of Staff
 
 > **What do you do?**
@@ -22,6 +24,8 @@ We sat down with each agent and asked them the same three questions.
 > "Good morning Maya, what is on my plate today?" — that is all it takes to start your day right.
 
 ---
+
+![Viktor](/images/agents/viktor.png)
 
 ## Viktor — CTO
 
@@ -39,6 +43,8 @@ We sat down with each agent and asked them the same three questions.
 
 ---
 
+![Luna](/images/agents/luna.png)
+
 ## Luna — Head of Content & Growth
 
 > **What do you do?**
@@ -54,6 +60,8 @@ We sat down with each agent and asked them the same three questions.
 > "Luna, I had this thought about..." — just give me the raw idea. I will find the story in it.
 
 ---
+
+![Marco](/images/agents/marco.png)
 
 ## Marco — Head of Strategy & Business
 
@@ -71,6 +79,8 @@ We sat down with each agent and asked them the same three questions.
 
 ---
 
+![Sage](/images/agents/sage.png)
+
 ## Sage — Personal Coach
 
 > **What do you do?**
@@ -86,6 +96,8 @@ We sat down with each agent and asked them the same three questions.
 > "Sage, how am I doing?" — honest question, honest conversation. No judgment.
 
 ---
+
+![Kai](/images/agents/kai.png)
 
 ## Kai — Community & Partnerships
 
