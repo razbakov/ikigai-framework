@@ -6,7 +6,7 @@ description: Install the setup skill, answer 10 questions, meet your team.
 ## Prerequisites
 
 1. **Claude Pro or Max subscription** — [claude.ai/pricing](https://claude.ai/pricing)
-2. **Claude Code** — via terminal (`npm install -g @anthropic-ai/claude-code`) or [Claude Desktop](https://claude.ai/download) app
+2. **Claude Desktop** — [claude.ai/download](https://claude.ai/download)
 
 ## Setup (2 minutes)
 
