@@ -3,7 +3,7 @@ title: Telegram
 description: Message your agents from your phone.
 ---
 
-Each agent can have a dedicated Telegram bot. Message them on the go �� they respond with full capabilities.
+Each agent can have a dedicated Telegram bot. Message them on the go — they respond with full capabilities.
 
 ## What It Looks Like
 
