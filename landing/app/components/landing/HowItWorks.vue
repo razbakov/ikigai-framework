@@ -2,21 +2,21 @@
 const steps = [
   {
     number: '01',
-    title: 'Read the Guide',
-    description: 'Follow the getting started guide to understand how agents, skills, and CLAUDE.md work together.',
-    icon: 'lucide:book-open',
+    title: 'Install the Skill',
+    description: 'One command installs the setup wizard. No dependencies, no build step.',
+    icon: 'lucide:download',
   },
   {
     number: '02',
-    title: 'Configure Your Team',
-    description: 'Set up CLAUDE.md with your mission, pick agents, and assign skills that match your workflow.',
-    icon: 'lucide:users',
+    title: 'Answer 10 Questions',
+    description: 'Name, projects, OKRs, integrations. The wizard generates your full team with all systems wired in.',
+    icon: 'lucide:message-circle',
   },
   {
     number: '03',
-    title: 'Run & Iterate',
-    description: 'Start Claude Code in your project directory and begin delegating. Customize as you go.',
-    icon: 'lucide:terminal',
+    title: 'Start Delegating',
+    description: 'Talk to Maya. She dispatches to the right agent. GTD, OKRs, reviews, and coaching run automatically.',
+    icon: 'lucide:rocket',
   },
 ]
 </script>

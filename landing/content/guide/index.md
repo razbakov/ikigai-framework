@@ -3,7 +3,7 @@ title: Setup Guide
 description: Everything you need to go from zero to a fully operational AI agent team. Follow these guides in order for the smoothest experience.
 ---
 
-This guide walks you through setting up your own AI Cabinet — a team of specialized AI agents that handle operations, engineering, content, strategy, coaching, and community work for your solo founder journey.
+This guide walks you through setting up your own Ikigai Team — a team of specialized AI agents that handle operations, engineering, content, strategy, coaching, and community work for your solo founder journey.
 
 ## What You'll Set Up
 
@@ -41,7 +41,7 @@ Define clear ownership domains for each agent using Sociocracy 3.0 patterns. Thi
 
 ## Philosophy
 
-The AI Cabinet is opinionated about a few things:
+The Ikigai Team is opinionated about a few things:
 
 - **Agents need boundaries.** Each agent has a clear domain, defined constraints, and knows what it cannot do without your approval.
 - **You are the commander.** Agents propose, you decide. No agent acts autonomously on irreversible decisions.

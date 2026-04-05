@@ -4,16 +4,16 @@ definePageMeta({
 })
 
 useHead({
-  title: 'Guide — AI Cabinet',
+  title: 'Guide — Ikigai Team',
   meta: [
-    { name: 'description', content: 'Learn how to set up and use your AI Cabinet — from understanding agents to deploying skills.' },
+    { name: 'description', content: 'Learn how to set up and use your Ikigai Team — from understanding agents to deploying skills.' },
   ],
 })
 
 const sections = [
   {
     title: 'Getting Started',
-    description: 'Set up your AI Cabinet configuration and deploy your first agents.',
+    description: 'Set up your Ikigai Team configuration and deploy your first agents.',
     icon: 'lucide:rocket',
     to: '/guide/getting-started',
   },
@@ -46,7 +46,7 @@ const sections = [
 
 <template>
   <div>
-    <h1 class="text-3xl font-bold mb-3">AI Cabinet Guide</h1>
+    <h1 class="text-3xl font-bold mb-3">Ikigai Team Guide</h1>
     <p class="text-lg text-muted-foreground mb-10">
       Everything you need to know about setting up and using your AI executive team.
     </p>

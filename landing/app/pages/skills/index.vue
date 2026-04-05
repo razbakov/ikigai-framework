@@ -2,7 +2,7 @@
 import { SKILLS } from '~/types/skill'
 
 useHead({
-  title: 'Skills — AI Cabinet',
+  title: 'Skills — Ikigai Team',
   meta: [
     { name: 'description', content: 'Browse all available AI agent skills: operations, engineering, content, strategy, personal development, and community management.' },
   ],

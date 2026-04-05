@@ -3,14 +3,14 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
         <div class="flex items-center gap-2 text-sm text-muted-foreground">
-          <Icon name="lucide:brain-circuit" class="w-4 h-4" />
-          <span>AI Cabinet</span>
+          <Icon name="lucide:compass" class="w-4 h-4" />
+          <span>Ikigai Team</span>
           <span class="mx-1">&middot;</span>
           <span>Built with Claude Code</span>
         </div>
         <div class="flex items-center gap-4">
           <a
-            href="https://github.com/razbakov/ai-cabinet"
+            href="https://github.com/razbakov/ikigai-team"
             target="_blank"
             rel="noopener noreferrer"
             class="text-muted-foreground hover:text-foreground transition-colors"

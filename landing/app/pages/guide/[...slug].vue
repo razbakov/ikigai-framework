@@ -16,7 +16,7 @@ const { data: page } = await useAsyncData(
 
 if (page.value) {
   useHead({
-    title: `${page.value.title} — AI Cabinet Guide`,
+    title: `${page.value.title} — Ikigai Team Guide`,
   })
 }
 </script>

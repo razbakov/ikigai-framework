@@ -32,12 +32,12 @@ onUnmounted(() => {
         <div>
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
             Your AI
-            <span class="text-primary">Executive Team</span>
+            <span class="text-primary">Dream Team</span>
           </h1>
           <p class="mt-6 text-lg text-muted-foreground max-w-xl">
-            Build a team of specialized AI agents that handle operations, engineering,
-            content, strategy, personal coaching, and community — so you can focus on
-            what matters most.
+            6 AI agents with GTD, OKRs, Level 10 Life, and S3 governance built in.
+            Not just agents — a complete system for running your life and projects.
+            So you can focus on your ikigai.
           </p>
           <div class="mt-8 flex flex-wrap gap-4">
             <NuxtLink
@@ -45,7 +45,7 @@ onUnmounted(() => {
               class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
             >
               <Icon name="lucide:rocket" class="w-5 h-5" />
-              Build Your Team
+              Meet the Team
             </NuxtLink>
             <NuxtLink
               to="/guide"
@@ -62,7 +62,7 @@ onUnmounted(() => {
             <div class="w-3 h-3 rounded-full bg-red-500/70" />
             <div class="w-3 h-3 rounded-full bg-yellow-500/70" />
             <div class="w-3 h-3 rounded-full bg-green-500/70" />
-            <span class="text-xs text-muted-foreground ml-2 font-mono">ai-cabinet</span>
+            <span class="text-xs text-muted-foreground ml-2 font-mono">ikigai-team</span>
           </div>
           <div class="p-4 font-mono text-sm space-y-3 min-h-[200px]">
             <div

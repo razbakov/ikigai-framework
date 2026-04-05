@@ -25,8 +25,10 @@
             content lead who publishes for you. A coach who watches your energy levels.
           </p>
           <p class="text-foreground font-medium">
-            That is what AI Cabinet builds for you — a configured, ready-to-deploy team
-            of AI agents tailored to your specific challenges and projects.
+            That is what Ikigai Team gives you — not just agents, but a complete operating
+            system with GTD, OKRs, coaching, and governance already wired in. You do not
+            have to research these methodologies or figure out how to connect them.
+            It is all there. Just use it.
           </p>
         </div>
       </div>

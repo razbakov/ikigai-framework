@@ -9,7 +9,7 @@ const skill = computed(() => SKILLS.find(s => s.slug === slug.value))
 const agent = computed(() => skill.value ? AGENTS.find(a => a.id === skill.value!.defaultAgent) : null)
 
 useHead({
-  title: computed(() => skill.value ? `${skill.value.name} — AI Cabinet Skills` : 'Skill Not Found'),
+  title: computed(() => skill.value ? `${skill.value.name} — Ikigai Team Skills` : 'Skill Not Found'),
 })
 
 const categoryColors: Record<string, string> = {

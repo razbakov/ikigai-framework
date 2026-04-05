@@ -7,8 +7,8 @@ const mobileMenuOpen = ref(false)
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <NuxtLink to="/" class="flex items-center gap-2">
-          <Icon name="lucide:brain-circuit" class="w-7 h-7 text-primary" />
-          <span class="text-lg font-bold">AI Cabinet</span>
+          <Icon name="lucide:compass" class="w-7 h-7 text-primary" />
+          <span class="text-lg font-bold">Ikigai Team</span>
         </NuxtLink>
 
         <nav class="hidden md:flex items-center gap-6">
