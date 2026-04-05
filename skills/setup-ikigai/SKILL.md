@@ -179,6 +179,16 @@ Any context needed to resume smoothly.
 
 Tell the user: "We saved your progress. When you are ready, open this folder in Claude Desktop and say 'Let us continue setting up my Ikigai Team.'"
 
+## Bundled References
+
+When generating files, read these references for the exact structures:
+- `references/agent-structures.md` — agent definitions, CLAUDE.md format, directory scaffold
+- `references/scripts/telegram-bots.py` — multi-agent Telegram bot runner (tmux, self-healing, watchdog). Adapt the AGENTS dict and paths for the user.
+- `references/scripts/telegram-send.py` — send messages via agent bots. Adapt AGENT_TOKEN_MAP for the user.
+- `references/scripts/telegram-bots.sh` — start/stop shell wrapper. Works as-is.
+
+Lines marked `# CUSTOMIZE` need to be adapted to the user's agent names and org path.
+
 ## Important Notes
 
 - **You are one agent playing roles.** Do not try to spawn sub-agents or use `claude --agent`. Adopt each persona's communication style when it is their turn.
