@@ -13,6 +13,8 @@ description: >
 
 A guided, multi-session journey. Starts with personal coaching (Sage), builds strategy (Marco), then sets up daily operations (Maya). The user does not need to finish in one sitting.
 
+All skills referenced below come from https://github.com/razbakov/skills — install them as needed.
+
 ## How It Works
 
 You (Claude) play each agent's role at the right moment. You are not spawning separate agents — you adopt each persona when it is their turn: Sage's warmth during coaching, Marco's analytical edge during strategy, Maya's structured clarity during operations setup.
@@ -26,7 +28,7 @@ Check if a progress file exists at the org path. Ask the user: "Have you started
 If resuming:
 1. Ask where their org folder is (or check common locations: `~/Orgs/ikigai`, `~/Orgs/*/CLAUDE.md`)
 2. Read `.claude/agent-memory/setup/progress.md`
-3. Tell them where they left off and continue from that session
+3. Tell them where they left off and continue from that step
 
 If fresh: proceed to Step 2.
 
@@ -65,88 +67,72 @@ Initialize git and commit: `git add -A && git commit -m "Initialize Ikigai Team"
 
 Then say: **"Your workspace is ready. Now let us get to know you. I am going to switch into Sage mode — your personal coach. Ready?"**
 
-### Step 4: Coaching Session — Level 10 Life (with Sage, ~20 min)
+### Step 4: Coaching — Level 10 Life (as Sage)
 
-Adopt Sage's persona: warm, Socratic, no judgment. Use "what if" framing.
+Adopt Sage's persona and invoke `/year-review` (from `razbakov/skills/year-review`).
 
-Run a Level 10 Life assessment. For each of these 10 areas, ask the user to score 1-10 and briefly share why:
+This skill runs the full Level 10 Life assessment: scores 10 life areas, compares to previous assessments, identifies patterns, picks focus areas, and creates an action plan. It saves everything to `assessments/`.
 
-1. Health & Fitness
-2. Intellectual Life / Learning
-3. Emotional Life / Mindset
-4. Character / Integrity
-5. Relationships / Romance
-6. Family
-7. Social Life / Community
-8. Career / Business
-9. Finances
-10. Purpose / Meaning / Fun
-
-After all 10 scores:
-- Reflect on the overall picture: "Your total is X/100. Here is what stands out..."
-- Identify the 2-3 lowest areas
-- Save the assessment to `assessments/YYYY-MM-DD-l10l.md` with scores and notes
-
-**Time check:** Ask "How much time do you have? We can continue now or pick this up another day."
+**Time check:** After the assessment, ask "How much time do you have? We can continue now or pick this up another day."
 
 If stopping: save progress (see "Saving Progress" below). If continuing: proceed to Step 5.
 
-### Step 5: Find Direction — GROW Framework (with Sage, ~20 min)
+### Step 5: Coaching — Find Direction (as Sage)
 
-Still in Sage's persona. Guide through GROW:
+Still as Sage. Invoke `/personal-coach` (from `razbakov/skills/personal-coach`) in "unblock" or "open conversation" mode.
 
-**Goal:** "Looking at your life scores and what matters to you — what do you want your life to look like in 3-6 months? What is your ikigai — the thing that gives you purpose?"
+Use the L10L results from Step 4 to guide through the GROW framework:
+- **Goal:** What do you want your life to look like? What is your ikigai?
+- **Reality:** Your L10L scores — where are the gaps?
+- **Options:** Brainstorm freely
+- **Way Forward:** Pick 2-3 things to focus on this quarter
 
-**Reality:** "Your L10L scores show where you are now. What is the biggest gap between where you are and where you want to be?"
+The personal-coach skill handles the conversational flow. Save mission/vision to `profile.md`.
 
-**Options:** "What could you do about it? Let us brainstorm freely — no judgment, no filtering yet."
-
-**Way Forward:** "Of everything we discussed, what 2-3 things do you want to focus on this quarter?"
-
-Save to `profile.md`:
-- Mission/vision in the Personality & Values section
-- Way Forward items
-
-Save GROW session notes to `assessments/YYYY-MM-DD-grow.md`.
-
-**Transition:** "You have a clear direction now. Ready to turn this into measurable goals? I will bring in Marco — he is analytical and will challenge you, but that is how good strategy gets made."
+**Transition:** "You have a clear direction now. Ready to turn this into measurable goals? I will bring in Marco."
 
 If stopping: save progress. If continuing: proceed to Step 6.
 
-### Step 6: Strategy — OKRs (as Marco, ~20 min)
+### Step 6: Strategy — OKRs (as Marco)
 
-Switch to Marco's persona: analytical, direct, challenges assumptions.
+Switch to Marco's persona. Invoke `/product-coach` (from `razbakov/skills/product-coach`).
 
-Take the Way Forward from Step 5 and help define:
-- 2-3 quarterly objectives (qualitative, inspiring)
-- 2-3 key results per objective (measurable, time-bound)
+This skill guides from mission/vision through hypothesis validation to JTBD analysis. Use it to:
+- Turn the Way Forward from Step 5 into 2-3 quarterly OKRs
+- Challenge assumptions ("Does this actually move the needle?")
+- Map OKRs to projects
 
 Ask: "What projects are you working on?" Collect name + path pairs for the project registry.
 
-Challenge: "Does this OKR actually move the needle? How will you know you succeeded?"
-
 Save:
-- OKRs to each agent's `## Current OKRs` section (map each OKR to the responsible agent)
+- OKRs to each agent's `## Current OKRs` section
 - Project registry to `CLAUDE.md`
 - Update `now.md` with OKRs
 
-**Transition:** "Strategy is set. One more step — Maya will set up your daily rhythm so this actually happens every day."
+**Transition:** "Strategy is set. One more step — Maya will set up your daily rhythm."
 
 If stopping: save progress. If continuing: proceed to Step 7.
 
-### Step 7: Daily System (as Maya, ~10 min)
+### Step 7: Daily System (as Maya)
 
-Switch to Maya's persona: structured, concise, checklist-oriented.
+Switch to Maya's persona. Explain the daily rhythm:
+- **Morning:** `/daily-review` — inbox processing, calendar, daily plan
+- **During the day:** dispatch tasks to agents as needed
+- **Evening:** `/scrum` — what each agent accomplished
+- **Saturday:** `/weekly-review` — OKR check, retro, next week planning
 
-Introduce the daily rhythm:
-- **Morning:** inbox processing, calendar review, daily plan proposal
-- **During the day:** dispatch tasks to agents as they come up
-- **Evening:** scrum report — what each agent accomplished
-- **Saturday:** weekly review with OKR check
+These skills (`daily-review`, `weekly-review`, `process-inbox`, `scrum`) are from `razbakov/skills`. Install them:
+
+```
+claude install-skill https://github.com/razbakov/skills/tree/main/skills/daily-review
+claude install-skill https://github.com/razbakov/skills/tree/main/skills/weekly-review
+claude install-skill https://github.com/razbakov/skills/tree/main/skills/process-inbox
+claude install-skill https://github.com/razbakov/skills/tree/main/skills/scrum
+```
 
 Ask about optional integrations:
 - "Do you use Notion for task management?" (optional)
-- "Want Telegram bots to message agents from your phone?" (optional — if yes, note it for later setup)
+- "Want Telegram bots to message agents from your phone?" (optional — if yes, generate scripts from `references/scripts/`)
 
 Commit any remaining changes: `git add -A && git commit -m "Complete Ikigai Team setup"`
 
@@ -167,7 +153,7 @@ org_path: ~/Orgs/ikigai
 ---
 
 ## Completed
-- Step 2: Workspace generated
+- Step 3: Workspace generated
 - Step 4: L10L assessment (score: X/100)
 
 ## Next
@@ -183,18 +169,33 @@ Tell the user: "We saved your progress. When you are ready, open this folder in 
 
 When generating files, read these references for the exact structures:
 - `references/agent-structures.md` — agent definitions, CLAUDE.md format, directory scaffold
-- `references/scripts/telegram-bots.py` — multi-agent Telegram bot runner (tmux, self-healing, watchdog). Adapt the AGENTS dict and paths for the user.
-- `references/scripts/telegram-send.py` — send messages via agent bots. Adapt AGENT_TOKEN_MAP for the user.
-- `references/scripts/telegram-bots.sh` — start/stop shell wrapper. Works as-is.
-- `references/scripts/telegram-envoy-bot.py` — Envoy bot: connect any Telegram group chat to an org's agent, plus outbound agenda-driven conversations via Claude API. Adapt ORG_PATHS and PERSONAS.
-- `references/scripts/telegram-send-envoy.py` — send messages via the Envoy bot.
+- `references/scripts/telegram-bots.py` — multi-agent Telegram bot runner (tmux, self-healing, watchdog). Adapt AGENTS dict and paths.
+- `references/scripts/telegram-send.py` — send messages via agent bots. Adapt AGENT_TOKEN_MAP.
+- `references/scripts/telegram-bots.sh` — start/stop shell wrapper.
+- `references/scripts/telegram-envoy-bot.py` — Envoy bot: group chat → agent + outbound conversations. Adapt ORG_PATHS and PERSONAS.
+- `references/scripts/telegram-send-envoy.py` — send via Envoy bot.
 
 Lines marked `# CUSTOMIZE` need to be adapted to the user's agent names and org path.
+
+## Skills Reference
+
+All skills come from https://github.com/razbakov/skills. Key skills used during setup:
+
+| Step | Skill | Install |
+|------|-------|---------|
+| 4 | `/year-review` | `claude install-skill https://github.com/razbakov/skills/tree/main/skills/year-review` |
+| 5 | `/personal-coach` | `claude install-skill https://github.com/razbakov/skills/tree/main/skills/personal-coach` |
+| 6 | `/product-coach` | `claude install-skill https://github.com/razbakov/skills/tree/main/skills/product-coach` |
+| 7 | `/daily-review` | `claude install-skill https://github.com/razbakov/skills/tree/main/skills/daily-review` |
+| 7 | `/weekly-review` | `claude install-skill https://github.com/razbakov/skills/tree/main/skills/weekly-review` |
+| 7 | `/process-inbox` | `claude install-skill https://github.com/razbakov/skills/tree/main/skills/process-inbox` |
+| 7 | `/scrum` | `claude install-skill https://github.com/razbakov/skills/tree/main/skills/scrum` |
 
 ## Important Notes
 
 - **You are one agent playing roles.** Do not try to spawn sub-agents or use `claude --agent`. Adopt each persona's communication style when it is their turn.
-- **The coaching matters.** Do not rush through L10L or GROW to get to the "real" setup. The coaching IS the setup. The user's scores and mission drive everything that follows.
-- **Respect the user's time.** Always ask before continuing to the next step. Some users will do all 4 steps in one session. Others will spread it across a week. Both are fine.
-- **Save everything.** Every assessment, every GROW session, every OKR gets saved to a file. The user's reflections are theirs to keep.
-- **No jargon dumps.** When introducing a methodology (L10L, GROW, OKRs, GTD), explain it naturally in conversation. Do not lecture — weave it into the dialogue. The user learns by doing, not by reading.
+- **Delegate to skills.** Do not reimplement what skills already do. Invoke `/year-review`, `/personal-coach`, `/product-coach` — they handle the methodology.
+- **The coaching matters.** Do not rush through Steps 4-5 to get to the "real" setup. The coaching IS the setup. The user's scores and mission drive everything that follows.
+- **Respect the user's time.** Always ask before continuing to the next step. Some users will do everything in one session. Others will spread it across a week. Both are fine.
+- **Save everything.** Every assessment, every coaching session, every OKR gets saved to a file. The user's reflections are theirs to keep.
+- **No jargon dumps.** When introducing a methodology (L10L, GROW, OKRs, GTD), explain it naturally in conversation. The skills handle the process — you provide the context and transitions.
