@@ -13,12 +13,16 @@ Your AI dream team. 6 agents with Level 10 Life, GROW coaching, OKRs, GTD, and S
 | **Luna** | Content & Growth | ENFP — imaginative, enthusiastic, trend-aware |
 | **Kai** | Community & Partnerships | ESFJ — warm, social, connector-minded |
 
-## Get Started
+## Install
 
-Open Claude Desktop and say:
+```bash
+cp -r skills/setup-ikigai ~/.claude/skills/setup-ikigai
+```
+
+Then start a new Claude Code conversation and say:
 
 ```
-Set up my Ikigai Team using https://github.com/razbakov/ikigai-team
+Set up my Ikigai Team
 ```
 
 The journey:
@@ -27,19 +31,13 @@ The journey:
 3. **Maya** sets up the daily rhythm — GTD inbox processing, reviews, planning
 4. **The team** handles the rest — code, content, community. You focus on your ikigai.
 
-## Website
-
-Landing page and guides at `landing/`. To run locally:
-
-```bash
-cd landing && pnpm install && pnpm dev
-```
-
 ## Repository
+
+This is a Claude Code skill repo. The main deliverable is `skills/setup-ikigai/`.
 
 ```
 skills/setup-ikigai/    # The setup skill (self-contained with references)
-landing/                # Nuxt 4 website (landing page, guides, skills browser)
+landing/                # Website (landing page, guides)
 ```
 
 ## License
