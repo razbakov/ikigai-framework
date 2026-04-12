@@ -35,6 +35,13 @@ const harnesses: Harness[] = [
     logo: 'simple-icons:openai',
   },
   {
+    id: 'antigravity',
+    name: 'AntiGravity',
+    launchLabel: 'Open AntiGravity',
+    logoKind: 'monogram',
+    monogram: 'AG',
+  },
+  {
     id: 'chatgpt',
     name: 'ChatGPT',
     launchLabel: 'Open ChatGPT',
