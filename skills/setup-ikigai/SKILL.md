@@ -1,13 +1,17 @@
 ---
 name: setup-ikigai
 description: >
-  Set up an Ikigai Team — 6 AI agents (Maya, Viktor, Luna, Marco, Sage, Kai) with OKRs,
-  GTD, and S3 governance built in. Supports both personal (Level 10 Life, GROW coaching)
-  and work contexts (performance reviews, career OKRs, NDA-aware). Use this skill when
-  the user wants to create their AI team, says "set up my ikigai", "create my team",
-  mentions ikigai-team, or provides the GitHub repo URL https://github.com/razbakov/ikigai-team.
-  Also trigger for: personal operating system, AI executive team, work assistant, career goals,
-  professional development, work team, managing multiple projects.
+  Set up, upgrade, migrate, or contribute back to an Ikigai Team — 6 AI agents
+  (Maya, Viktor, Luna, Marco, Sage, Kai) with OKRs, GTD, and S3 governance built in.
+  Supports both personal (Level 10 Life, GROW coaching) and work contexts (performance
+  reviews, career OKRs, NDA-aware). The skill auto-detects the user's current state
+  (fresh / mid-setup / installed-current / installed-stale / installed-customized) and
+  routes accordingly. Use this skill whenever the user wants to create or update their
+  AI team, says "set up my ikigai", "create my team", "update my system", "upgrade my
+  ikigai", mentions ikigai-team, or provides the GitHub repo URL
+  https://github.com/razbakov/ikigai-team. Also trigger for: personal operating system,
+  AI executive team, work assistant, career goals, professional development, work team,
+  managing multiple projects.
 ---
 
 # Setup Ikigai Team
@@ -22,16 +26,179 @@ You (Claude) play each agent's role at the right moment. You are not spawning se
 
 ## Process
 
-### Step 1: Detect Fresh Start vs Resume
+### Step 1: State Detection (always runs first)
 
-Check if a progress file exists at the org path. Ask the user: "Have you started setting up your Ikigai Team before, or is this fresh?"
+Same trigger prompt — `"Set up my Ikigai Team using https://github.com/razbakov/ikigai-team"` — handles every situation. Do not ask the user "is this fresh?" until you've actually looked at their disk.
 
-If resuming:
-1. Ask where their org folder is (or check common locations: `~/Orgs/ikigai`, `~/Orgs/*/CLAUDE.md`)
-2. Read `.claude/agent-memory/setup/progress.md`
-3. Tell them where they left off and continue from that step
+**1.0 — Ensure the framework repo is on disk.**
 
-If fresh: proceed to Step 2.
+The framework lives at `~/Projects/ikigai-team` and is referenced via `@`-import. If it's missing, no instance can resolve its imports.
+
+```bash
+if [ ! -d ~/Projects/ikigai-team/.git ]; then
+  mkdir -p ~/Projects && \
+  git clone https://github.com/razbakov/ikigai-team ~/Projects/ikigai-team
+else
+  git -C ~/Projects/ikigai-team fetch --quiet
+fi
+```
+
+Note the framework's current `HEAD` and `origin/main` SHAs — you'll need them in 1.2.
+
+**1.1 — Find any existing instance.**
+
+An "instance" is a folder whose root `CLAUDE.md` was created by this skill. Probe in order, stop at the first hit:
+
+1. **Modern instance** — grep for the framework `@`-import in likely roots:
+   ```bash
+   grep -lE '@.*ikigai-team/CLAUDE\.md' \
+     ~/Orgs/*/CLAUDE.md ~/Brain/CLAUDE.md ~/CLAUDE.md 2>/dev/null
+   ```
+2. **Mid-setup** — any `.claude/agent-memory/setup/progress.md` file under `~/Orgs/`, `~/Brain/`, or paths the user mentions.
+3. **Legacy instance** — folder with `.claude/agents/maya.md` AND `.claude/agents/viktor.md` AND `.claude/agents/luna.md` but NO framework import.
+4. **Nothing found** — fresh install.
+
+If multiple modern instances are found (e.g. user runs work + personal), list them and ask which one this session is about. Do not silently pick.
+
+**1.2 — Classify state and route.**
+
+| State | Detector | Route to |
+|-------|----------|----------|
+| **Fresh** | nothing found in 1.1 | Step 2 (existing onboarding flow) |
+| **Mid-setup** | `progress.md` found | read it, jump to `resume_at` step |
+| **Installed-current** | modern instance, framework `HEAD == origin/main`, no local skill/rule drift | Step 1.6 (menu) |
+| **Installed-stale** | modern instance, framework behind origin OR legacy instance with no `@`-import | Step 1.3 (migrate) |
+| **Installed-customized** | any instance with private rules or local skills that look universal | Step 1.5 (extract & contribute) |
+
+A single instance can be both stale and customized — run 1.3 first, then 1.5.
+
+Print the detected state in plain English before doing anything: *"Found your existing Ikigai setup at `~/Orgs/ikigai`. It's a few weeks behind on framework updates and I noticed 3 rules in your private config that look like they'd help everyone. I can refresh both. Want me to walk through it?"*
+
+Wait for explicit yes before mutating any file.
+
+### Step 1.3 — Migrate (installed-stale)
+
+Goal: bring an existing instance to the current framework shape (modular `@`-imports of `rules/*.md`) without losing private content.
+
+**a) Identify what's framework-shaped vs private** in the instance's root `CLAUDE.md`:
+
+- Framework-shaped (move to imports): agent role tables, decision matrix, GTD/Tasks rules, daily-review cadence, Telegram protocol, content-publishing conventions, contact discipline, skill-authoring rules, org/project taxonomy, "remind me" surface picker, general cross-cutting principles.
+- Private (keep inline): the user's name, email, OKRs, project path registry, bot tokens table, PostHog IDs, personal shortcuts, identity-bound spelling rules.
+
+Use the framework's `rules/*.md` filenames as the canonical taxonomy. For each section in the user's CLAUDE.md, ask: "does the framework already have a rule like this?" If yes, drop the local copy. If yes-but-different, this is a candidate for Step 1.5 (contribution).
+
+**b) Show the diff.** Write the proposed new CLAUDE.md to a tempfile and `diff` it against the current one. Walk the user through it section-by-section. Get explicit approval per section.
+
+**c) Apply the migration.**
+
+```bash
+cd <instance-path>
+# Show what changed
+git status
+git diff CLAUDE.md
+```
+
+Only proceed when the user says yes. Commit with: `"Migrate to modular framework imports"`.
+
+**d) Refresh the framework + skills.**
+
+```bash
+git -C ~/Projects/ikigai-team pull --ff-only
+# If skills repo is managed via skill-mix:
+[ -d ~/.local/share/skill-mix/sources ] && \
+  for d in ~/.local/share/skill-mix/sources/*/; do
+    git -C "$d" pull --ff-only 2>/dev/null
+  done
+```
+
+**e) Verify the import chain.** Print the resolved tree so the user can see what's now in scope:
+
+```
+~/Orgs/ikigai/CLAUDE.md
+└── @/Users/<user>/Projects/ikigai-team/CLAUDE.md
+    ├── @rules/agent-team.md
+    ├── @rules/agent-operations.md
+    ├── @rules/tasks-control-center.md
+    ├── ...
+```
+
+Tell the user: "Your setup is now on the latest framework. Anything you've added on top is preserved. New sessions will pick this up automatically."
+
+If the user originally invoked the skill via the **Layer A** "update my system" prompt (passive notification), end here unless they explicitly want to continue into 1.5 or the menu.
+
+### Step 1.5 — Extract & Contribute (installed-customized)
+
+Goal: harvest local rules/skills that would help every Ikigai user, send them upstream as a PR.
+
+**a) Find candidates.**
+
+In the instance:
+- Sections of the private `CLAUDE.md` that **don't** mention proper nouns (specific people, specific orgs, specific paths to private repos).
+- `.claude/skills/*/SKILL.md` files in projects whose body doesn't reference any single project.
+- `~/.claude/CLAUDE.md` rules that aren't pure personal info.
+
+Heuristic for "looks universal": if you removed the rule, would another Ikigai user feel something missing? If yes → candidate.
+
+**b) Triage with the user.** For each candidate, present:
+
+```
+Found: a rule about <topic>.
+Rule: <verbatim text>
+Looks like it belongs in: rules/<file>.md (or new rules file)
+Want to contribute it? (y / edit / no / skip-all-from-this-file)
+```
+
+Default to "no" if the user looks unsure. Never auto-include without explicit yes per item.
+
+**c) Build a contribution branch.**
+
+```bash
+cd ~/Projects/ikigai-team
+BRANCH="contrib/$(date +%Y-%m-%d)-from-$(whoami)"
+git checkout -b "$BRANCH"
+# Apply each accepted candidate to the right rules/*.md
+# Commit per logical group
+git push -u origin "$BRANCH"
+```
+
+**d) Open the PR** with `gh pr create`. PR body template:
+
+```markdown
+## Summary
+Contribution from a live Ikigai user — `setup-ikigai` skill detected
+N rules / M skills that look universal during an upgrade.
+
+## Changes
+- rules/<file>.md: added section "<title>" — <one-line why>
+- ...
+
+## How this was generated
+Each item was reviewed and explicitly approved by the user before
+inclusion. Personal details (names, paths, projects, tokens) were
+stripped — see the diff.
+
+## For maintainer
+Please review for tone, taxonomy fit, and whether any item should land
+in a different rules file. Decline freely — the user's local setup is
+unchanged.
+```
+
+Tell the user: "PR opened: <url>. Once it's merged, your improvement flows to every Ikigai instance via the next `git pull`."
+
+If the user is the framework maintainer (you can detect by checking if `git config user.email` matches the `razbakov/ikigai-team` owner), skip the PR and just commit to a branch — they can merge themselves.
+
+### Step 1.6 — Up-to-date menu
+
+When the instance is current and there's nothing to migrate or contribute, ask what the user actually wants:
+
+- "Add a new project" → run `/product-coach` against an existing or new project path.
+- "Add a new organization" → run `/org-coach` to scaffold S3 governance.
+- "Re-run a quarterly OKR review" → switch to Marco persona, jump to Step 6.
+- "Just checking" → exit gracefully, no files touched.
+
+### Step 2 onward — Fresh setup
+
+Reached only when state is **fresh**. Continue with the original guided onboarding below.
 
 ### Step 2: Quick Setup (5 minutes)
 
