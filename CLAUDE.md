@@ -25,6 +25,7 @@ Whichever door you enter through, you get the same restaurant: the same agent te
 @rules/agent-team.md
 @rules/agent-operations.md
 @rules/agent-protocols.md
+@rules/agent-proactivity.md
 @rules/tasks-control-center.md
 @rules/daily-review.md
 @rules/telegram.md
